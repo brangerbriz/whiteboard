@@ -1,0 +1,150 @@
+<html>
+<head>
+	<title>{{title}}</title>
+	<style>
+
+		* { margin: 0; padding: 0; box-sizing: border-box; }
+		body { 
+			font: 13px Helvetica, Arial; 
+			-webkit-touch-callout: none;
+		    -webkit-user-select: none;
+		    -khtml-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
+		}
+		canvas { position: absolute; z-index: 1; top:0px; bottom:0px; }
+
+		#start{
+			width: 100%;
+			height:100%;
+			text-align: center;
+			background: #fff;
+			position: fixed; top:0px; left:0px; z-index: 10;
+		}
+		#splash {
+			display: block;
+			width:481px;
+			margin:30px auto;
+		}
+		#login { 
+			width:240px; 
+			margin: 0 auto;
+			background: #fff;
+			border: 1px solid #ccc;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			font-size: 24px; 
+			padding: 10px;
+		}
+		#signin { 
+			width:100px; 
+			margin: 0 auto;
+			background: #fff;
+			border: 1px solid #ccc;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			font-size: 24px; 
+			padding: 10px;
+		}
+
+		#userList{ position: absolute; z-index: 3; }
+
+		#colorlayer {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 9;
+			display: none;
+			/*cursor:url(images/swatch.png), auto;*/
+		}
+		#sizePicker {
+			position: absolute;
+			z-index: 9;
+			width:102px;
+			height:101px;
+			left:50%;
+			top:50%;
+			margin-left: -50px;
+			margin-top: -50px;
+			display: none;
+		}
+
+		#nfo { position: fixed; z-index: 4; top: 20px; left: 0; text-align: center; width: 100%; display:none; }
+		#toolbar { position: fixed; z-index: 4; bottom: 20px; left: 0; text-align: center; width: 100%; display:none; }
+		.icon { padding: 10px; cursor: pointer; opacity: 0.5 }
+		.submenu { display: inline-block; }
+		.sub { padding:5px; cursor:pointer; width:65px; opacity: 0.5}
+		b { font-weight: bold}
+
+
+    </style>
+</head>
+<body>
+
+	<!-- login page -->
+	<div id="start">
+		<img src="images/splash.png" id="splash">
+		<input id="login" type="text" placeholder="username"/>
+		<button id="signin">signin</button>	
+	</div>
+
+	<div id="colorlayer"></div> <!-- full screen color -->
+
+	<img src="images/missing.png" id="sizePicker"> <!-- full screen color -->
+
+
+	<!-- tools menu -->
+	<div id="nfo">
+		press <b>C</b> to change color <b>R</b> for random color <br>
+		hold <b>S</b> ( and drag ) to resize <br>
+		press <b>U</b> to undo <br>
+	</div>
+	<div id="toolbar">
+		<img src="images/pen.png" id="pen" class="icon" style="opacity:1">
+		<div id="submenu-pen" class="submenu">
+			<img src="images/pensolid.png" class="sub" id="pensolid" style="opacity:1">
+			<img src="images/pensoft.png" class="sub" id="pensoft"><br>
+			<img src="images/pencalig.png" class="sub" id="pencalig">
+			<img src="images/penlines.png" class="sub" id="penlines">
+		</div>
+		<img src="images/stamp.png" id="stamp" class="icon">
+		<div id="submenu-stamp" class="submenu">
+			<img src="images/stampcircles.png" class="sub" id="stampcircles" style="opacity:1">
+			<img src="images/stampcircslash.png" class="sub" id="stampcircslash">
+			<img src="images/stampcube.png" class="sub" id="stampcube"><br>
+			<img src="images/stampflames.png" class="sub" id="stampflames">			
+			<img src="images/stampgrid.png" class="sub" id="stampgrid">
+			<img src="images/stampheart.png" class="sub" id="stampheart"><br>
+			<img src="images/stamplocking.png" class="sub" id="stamplocking">			
+			<img src="images/stampseal.png" class="sub" id="stampseal">
+			<img src="images/stampstar.png" class="sub" id="stampstar">
+		</div>
+		<img src="images/spray.png" id="spray" class="icon">
+		<div id="submenu-spray" class="submenu">
+			<img src="images/spraypaint.png" class="sub" id="spraypaint" style="opacity:1">
+			<img src="images/sprayleafs.png" class="sub" id="sprayleafs"><br>
+			<img src="images/spraystars.png" class="sub" id="spraystars">
+			<img src="images/sprayweb.png" class="sub" id="sprayweb">			
+		</div>
+		<img src="images/eraser.png" id="eraser" class="icon">
+	</div>
+	
+	<!-- collect user names -->
+	<div id="userList"></div>
+
+
+	<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/utils.js"></script>
+	<script src="js/controls.js"></script>
+	<script src="js/tools.js"></script>
+	<script src="js/setup.js"></script>
+	
+
+</body>
+</html>

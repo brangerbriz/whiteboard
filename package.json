@@ -1,0 +1,27 @@
+{
+  "name": "whiteboard",
+  "version": "1.0.0",
+  "description": "playing with node + sockets + canvas",
+  "main": "app.js",
+  "scripts": {
+    "test": "n/a"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/n/a"
+  },
+  "keywords": [
+    "n/a"
+  ],
+  "author": "nick briz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/n/a/issues"
+  },
+  "homepage": "https://github.com/n/a",
+  "dependencies": {
+    "express": "^4.12.3",
+    "socket.io": "^1.3.5",
+    "hogan-express": "*"
+  }
+}
