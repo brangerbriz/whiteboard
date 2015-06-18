@@ -3,7 +3,7 @@ var users = {};
 var ids = {};
 var canvases = [];
 
-app.set('port', process.env.PORT || 3003);
+app.set('port', process.env.PORT || 3001);
 // app.set('port', process.env.PORT || 80);
 
 
